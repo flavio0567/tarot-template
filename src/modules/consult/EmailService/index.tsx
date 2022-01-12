@@ -31,6 +31,9 @@ type NavProps = NavigationProp<ParamListBase>;
 
 export function EmailService({route}: any) {
   const {attendant} = route.params;
+  const {Cadastro} = attendant;
+  console.log('codigo do atendente:', Cadastro.Codigo);
+
   const navigation = useNavigation<NavProps>();
 
   const [isLoading, setIsLoading] = useState(false);
@@ -107,7 +110,7 @@ export function EmailService({route}: any) {
       {Platform.OS === 'android' ? (
         <KeyboardAvoidingView
           style={{flex: 1}}
-          behavior="padding"
+          behavior="height"
           keyboardVerticalOffset={30}
           enabled>
           <Content>
@@ -138,11 +141,11 @@ export function EmailService({route}: any) {
                 placeholder="Assunto"
                 iconName={'book-open'}
               />
-              <Input
+              <MessageText
                 onChangeText={setMessage}
                 value={message}
                 placeholder="Mensagem"
-                iconName={'file-text'}
+                multiline={true}
               />
             </Form>
             <Button

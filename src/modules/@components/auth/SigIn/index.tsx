@@ -77,7 +77,7 @@ export function SignIn() {
       // await signInWithGoogle();
       setIsLoading(false);
     } catch (error) {
-      console.log('Cound not connect to google:', error);
+      console.log('Could not connect to google:', error);
       Alert.alert(
         'Não foi possível conectar a conta Google, tente novamente! ',
       );

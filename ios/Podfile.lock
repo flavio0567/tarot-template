@@ -400,7 +400,7 @@ PODS:
     - React-Core
   - RNGestureHandler (2.1.0):
     - React-Core
-  - RNGoogleSignin (7.0.3):
+  - RNGoogleSignin (7.0.4):
     - GoogleSignIn (~> 6.0.0)
     - React-Core
   - RNReanimated (2.2.4):
@@ -695,7 +695,7 @@ SPEC CHECKSUMS:
   RNCPicker: cb57c823d5ce8d2d0b5dfb45ad97b737260dc59e
   RNDeviceInfo: 0400a6d0c94186d1120c3cbd97b23abc022187a9
   RNGestureHandler: e5c7cab5f214503dcefd6b2b0cefb050e1f51c4a
-  RNGoogleSignin: aa9bb821ffb396bc64b4b6befc60bf41e6ae625f
+  RNGoogleSignin: c4381751eefd73c552b923ba347a9bfc6f18771c
   RNReanimated: 65583befd5706cc9c86ae9a081786181ced37b93
   RNScreens: 522705f2e5c9d27efb17f24aceb2bf8335bc7b8e
   RNSVG: 551acb6562324b1d52a4e0758f7ca0ec234e278f

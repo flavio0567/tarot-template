@@ -46,6 +46,7 @@ export const UserInfo = styled.View`
   width: 250px;
   flex-direction: row;
   align-items: center;
+  margin-top: 10px;
 `;
 
 export const Photo = styled.Image`

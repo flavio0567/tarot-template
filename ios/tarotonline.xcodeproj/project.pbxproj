@@ -13,10 +13,10 @@
 		13B07FBC1A68108700A75B9A /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.m */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
-		3A12B880A704806C0485C2AE /* libPods-tarotonline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 13D872CE6A0C9BCF8FCF71B9 /* libPods-tarotonline.a */; };
+		3D7BEF5BCDAE563EA23822B8 /* libPods-tarotonline-tarotonlineTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4F2CC28403C20BFE11530492 /* libPods-tarotonline-tarotonlineTests.a */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
 		93F5BA52C8B34E579E5424BE /* Roboto-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 259113F485E44C51A8D0651A /* Roboto-Regular.ttf */; };
-		BD12C4803CD4F661ADFB1D32 /* libPods-tarotonline-tarotonlineTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B9EB7A2FE2D86C60D7F234A /* libPods-tarotonline-tarotonlineTests.a */; };
+		F42475860F7001B58481E180 /* libPods-tarotonline.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 3AFE90B87D9B2A7775E96A93 /* libPods-tarotonline.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +33,7 @@
 		00E356EE1AD99517003FC87E /* tarotonlineTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = tarotonlineTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* tarotonlineTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = tarotonlineTests.m; sourceTree = "<group>"; };
+		0B9FD9850C88A026EA3280BF /* Pods-tarotonline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tarotonline.release.xcconfig"; path = "Target Support Files/Pods-tarotonline/Pods-tarotonline.release.xcconfig"; sourceTree = "<group>"; };
 		136C66E54F0E4611ACD9D192 /* Feather.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Feather.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Feather.ttf"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* tarotonline.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = tarotonline.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = tarotonline/AppDelegate.h; sourceTree = "<group>"; };
@@ -40,32 +41,31 @@
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = tarotonline/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = tarotonline/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = tarotonline/main.m; sourceTree = "<group>"; };
-		13D872CE6A0C9BCF8FCF71B9 /* libPods-tarotonline.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tarotonline.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		203559816FFC4A199F09AEAD /* Octicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Octicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Octicons.ttf"; sourceTree = "<group>"; };
 		20DEB7D030F14AB1BBAFBB41 /* FontAwesome5_Brands.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Brands.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Brands.ttf"; sourceTree = "<group>"; };
 		259113F485E44C51A8D0651A /* Roboto-Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Regular.ttf"; path = "../assets/fonts/Roboto-Regular.ttf"; sourceTree = "<group>"; };
+		268D2BF5EBDE74687C68F036 /* Pods-tarotonline-tarotonlineTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tarotonline-tarotonlineTests.release.xcconfig"; path = "Target Support Files/Pods-tarotonline-tarotonlineTests/Pods-tarotonline-tarotonlineTests.release.xcconfig"; sourceTree = "<group>"; };
 		2D8F9F7B706C4C1794038CC1 /* MaterialIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialIcons.ttf"; sourceTree = "<group>"; };
 		2DEE82891D8B494AB8296C22 /* Roboto-Medium.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Medium.ttf"; path = "../assets/fonts/Roboto-Medium.ttf"; sourceTree = "<group>"; };
+		3AFE90B87D9B2A7775E96A93 /* libPods-tarotonline.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tarotonline.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		4F2CC28403C20BFE11530492 /* libPods-tarotonline-tarotonlineTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tarotonline-tarotonlineTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		52ED11920A054C6396F18ED6 /* MaterialCommunityIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = MaterialCommunityIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/MaterialCommunityIcons.ttf"; sourceTree = "<group>"; };
 		646FD5102773D6FB00A9B459 /* tarotonline.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; name = tarotonline.entitlements; path = tarotonline/tarotonline.entitlements; sourceTree = "<group>"; };
 		66162BE0E2C543C3A759B71E /* FontAwesome5_Regular.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Regular.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Regular.ttf"; sourceTree = "<group>"; };
-		6B9EB7A2FE2D86C60D7F234A /* libPods-tarotonline-tarotonlineTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-tarotonline-tarotonlineTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 		792A0624CF7647D4A08039C5 /* SimpleLineIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = SimpleLineIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/SimpleLineIcons.ttf"; sourceTree = "<group>"; };
 		7DEC0F7E9F4842EB83B9B47D /* Entypo.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Entypo.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Entypo.ttf"; sourceTree = "<group>"; };
+		7F5D7CB7DF1C2F7FAD08EABF /* Pods-tarotonline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tarotonline.debug.xcconfig"; path = "Target Support Files/Pods-tarotonline/Pods-tarotonline.debug.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = tarotonline/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		9AF1044CA061C9C48648CCC5 /* Pods-tarotonline-tarotonlineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tarotonline-tarotonlineTests.debug.xcconfig"; path = "Target Support Files/Pods-tarotonline-tarotonlineTests/Pods-tarotonline-tarotonlineTests.debug.xcconfig"; sourceTree = "<group>"; };
 		9D11E33990D1455795371E4D /* Zocial.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Zocial.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Zocial.ttf"; sourceTree = "<group>"; };
 		A59B93E13E13430FB5D7ACCE /* Fontisto.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Fontisto.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Fontisto.ttf"; sourceTree = "<group>"; };
-		B62D2AF47FFEFAFEE05B3F7D /* Pods-tarotonline-tarotonlineTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tarotonline-tarotonlineTests.debug.xcconfig"; path = "Target Support Files/Pods-tarotonline-tarotonlineTests/Pods-tarotonline-tarotonlineTests.debug.xcconfig"; sourceTree = "<group>"; };
 		BB50216E2887487295D3EF93 /* Ionicons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Ionicons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Ionicons.ttf"; sourceTree = "<group>"; };
-		CEB6993668061187E8651DC7 /* Pods-tarotonline-tarotonlineTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tarotonline-tarotonlineTests.release.xcconfig"; path = "Target Support Files/Pods-tarotonline-tarotonlineTests/Pods-tarotonline-tarotonlineTests.release.xcconfig"; sourceTree = "<group>"; };
 		D26EDA37FA3B4C1585154AA8 /* FontAwesome.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome.ttf"; sourceTree = "<group>"; };
 		E044FBECBFA84DC88CCCB391 /* FontAwesome5_Solid.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = FontAwesome5_Solid.ttf; path = "../node_modules/react-native-vector-icons/Fonts/FontAwesome5_Solid.ttf"; sourceTree = "<group>"; };
 		E2CE364082094CF2ACD0BA73 /* EvilIcons.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = EvilIcons.ttf; path = "../node_modules/react-native-vector-icons/Fonts/EvilIcons.ttf"; sourceTree = "<group>"; };
 		E59ABF51B66A4CB8B0CB0099 /* Foundation.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = Foundation.ttf; path = "../node_modules/react-native-vector-icons/Fonts/Foundation.ttf"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 		EED8FE05BDF74972874637C6 /* AntDesign.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = AntDesign.ttf; path = "../node_modules/react-native-vector-icons/Fonts/AntDesign.ttf"; sourceTree = "<group>"; };
-		EEF16A70E20CF509C0ACB348 /* Pods-tarotonline.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tarotonline.debug.xcconfig"; path = "Target Support Files/Pods-tarotonline/Pods-tarotonline.debug.xcconfig"; sourceTree = "<group>"; };
-		F77E11B56875E716E29ECC5B /* Pods-tarotonline.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tarotonline.release.xcconfig"; path = "Target Support Files/Pods-tarotonline/Pods-tarotonline.release.xcconfig"; sourceTree = "<group>"; };
 		FF7F97EEAEC64495AD52265C /* Roboto-Bold.ttf */ = {isa = PBXFileReference; explicitFileType = undefined; fileEncoding = 9; includeInIndex = 0; lastKnownFileType = unknown; name = "Roboto-Bold.ttf"; path = "../assets/fonts/Roboto-Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -74,7 +74,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BD12C4803CD4F661ADFB1D32 /* libPods-tarotonline-tarotonlineTests.a in Frameworks */,
+				3D7BEF5BCDAE563EA23822B8 /* libPods-tarotonline-tarotonlineTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -82,7 +82,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				3A12B880A704806C0485C2AE /* libPods-tarotonline.a in Frameworks */,
+				F42475860F7001B58481E180 /* libPods-tarotonline.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -124,8 +124,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				13D872CE6A0C9BCF8FCF71B9 /* libPods-tarotonline.a */,
-				6B9EB7A2FE2D86C60D7F234A /* libPods-tarotonline-tarotonlineTests.a */,
+				3AFE90B87D9B2A7775E96A93 /* libPods-tarotonline.a */,
+				4F2CC28403C20BFE11530492 /* libPods-tarotonline-tarotonlineTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -191,10 +191,10 @@
 		E233CBF5F47BEE60B243DCF8 /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				EEF16A70E20CF509C0ACB348 /* Pods-tarotonline.debug.xcconfig */,
-				F77E11B56875E716E29ECC5B /* Pods-tarotonline.release.xcconfig */,
-				B62D2AF47FFEFAFEE05B3F7D /* Pods-tarotonline-tarotonlineTests.debug.xcconfig */,
-				CEB6993668061187E8651DC7 /* Pods-tarotonline-tarotonlineTests.release.xcconfig */,
+				7F5D7CB7DF1C2F7FAD08EABF /* Pods-tarotonline.debug.xcconfig */,
+				0B9FD9850C88A026EA3280BF /* Pods-tarotonline.release.xcconfig */,
+				9AF1044CA061C9C48648CCC5 /* Pods-tarotonline-tarotonlineTests.debug.xcconfig */,
+				268D2BF5EBDE74687C68F036 /* Pods-tarotonline-tarotonlineTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -206,12 +206,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "tarotonlineTests" */;
 			buildPhases = (
-				ABC4E20462356866F0DB2C6B /* [CP] Check Pods Manifest.lock */,
+				4238FB7CCEDCAC97A7F7384F /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				2A729552123799D0C4FB8BD5 /* [CP] Embed Pods Frameworks */,
-				83968CB034BFBD06FF8D9470 /* [CP] Copy Pods Resources */,
+				B2FB38B91C3250368F6B030B /* [CP] Embed Pods Frameworks */,
+				605B3D80FA0D7466E0DB8BFE /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -227,14 +227,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "tarotonline" */;
 			buildPhases = (
-				5CD733BEAB3914790F3533FF /* [CP] Check Pods Manifest.lock */,
+				86A97E4FD83029AE63BD6A87 /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				9357EF46F66F2BDDA92A26D9 /* [CP] Embed Pods Frameworks */,
-				4EFB1327ACAB4E185681594B /* [CP] Copy Pods Resources */,
+				60717EA3AB9F83C5DB449A7E /* [CP] Embed Pods Frameworks */,
+				FAD52F33663F98902B18F847 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -251,7 +251,7 @@
 		83CBB9F71A601CBA00E9B192 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 1210;
+				LastUpgradeCheck = 1250;
 				TargetAttributes = {
 					00E356ED1AD99517003FC87E = {
 						CreatedOnToolsVersion = 6.2;
@@ -318,41 +318,63 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nexport NODE_BINARY=node\n../node_modules/react-native/scripts/react-native-xcode.sh\n";
 		};
-		2A729552123799D0C4FB8BD5 /* [CP] Embed Pods Frameworks */ = {
+		4238FB7CCEDCAC97A7F7384F /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-tarotonline-tarotonlineTests/Pods-tarotonline-tarotonlineTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			name = "[CP] Embed Pods Frameworks";
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-tarotonline-tarotonlineTests/Pods-tarotonline-tarotonlineTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-tarotonline-tarotonlineTests-checkManifestLockResult.txt",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tarotonline-tarotonlineTests/Pods-tarotonline-tarotonlineTests-frameworks.sh\"\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		4EFB1327ACAB4E185681594B /* [CP] Copy Pods Resources */ = {
+		605B3D80FA0D7466E0DB8BFE /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-tarotonline/Pods-tarotonline-resources-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-tarotonline-tarotonlineTests/Pods-tarotonline-tarotonlineTests-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-tarotonline/Pods-tarotonline-resources-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-tarotonline-tarotonlineTests/Pods-tarotonline-tarotonlineTests-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tarotonline/Pods-tarotonline-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tarotonline-tarotonlineTests/Pods-tarotonline-tarotonlineTests-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		5CD733BEAB3914790F3533FF /* [CP] Check Pods Manifest.lock */ = {
+		60717EA3AB9F83C5DB449A7E /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tarotonline/Pods-tarotonline-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tarotonline/Pods-tarotonline-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tarotonline/Pods-tarotonline-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		86A97E4FD83029AE63BD6A87 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -374,60 +396,38 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		83968CB034BFBD06FF8D9470 /* [CP] Copy Pods Resources */ = {
+		B2FB38B91C3250368F6B030B /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-tarotonline-tarotonlineTests/Pods-tarotonline-tarotonlineTests-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-tarotonline-tarotonlineTests/Pods-tarotonline-tarotonlineTests-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tarotonline-tarotonlineTests/Pods-tarotonline-tarotonlineTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		9357EF46F66F2BDDA92A26D9 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-tarotonline/Pods-tarotonline-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-tarotonline-tarotonlineTests/Pods-tarotonline-tarotonlineTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-tarotonline/Pods-tarotonline-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+				"${PODS_ROOT}/Target Support Files/Pods-tarotonline-tarotonlineTests/Pods-tarotonline-tarotonlineTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tarotonline/Pods-tarotonline-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tarotonline-tarotonlineTests/Pods-tarotonline-tarotonlineTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		ABC4E20462356866F0DB2C6B /* [CP] Check Pods Manifest.lock */ = {
+		FAD52F33663F98902B18F847 /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tarotonline/Pods-tarotonline-resources-${CONFIGURATION}-input-files.xcfilelist",
 			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
+			name = "[CP] Copy Pods Resources";
 			outputFileListPaths = (
-			);
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-tarotonline-tarotonlineTests-checkManifestLockResult.txt",
+				"${PODS_ROOT}/Target Support Files/Pods-tarotonline/Pods-tarotonline-resources-${CONFIGURATION}-output-files.xcfilelist",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tarotonline/Pods-tarotonline-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -482,15 +482,16 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = B62D2AF47FFEFAFEE05B3F7D /* Pods-tarotonline-tarotonlineTests.debug.xcconfig */;
+			baseConfigurationReference = 9AF1044CA061C9C48648CCC5 /* Pods-tarotonline-tarotonlineTests.debug.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
 				);
 				INFOPLIST_FILE = tarotonlineTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -509,12 +510,13 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = CEB6993668061187E8651DC7 /* Pods-tarotonline-tarotonlineTests.release.xcconfig */;
+			baseConfigurationReference = 268D2BF5EBDE74687C68F036 /* Pods-tarotonline-tarotonlineTests.release.xcconfig */;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
 				INFOPLIST_FILE = tarotonlineTests/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -533,7 +535,7 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = EEF16A70E20CF509C0ACB348 /* Pods-tarotonline.debug.xcconfig */;
+			baseConfigurationReference = 7F5D7CB7DF1C2F7FAD08EABF /* Pods-tarotonline.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -561,7 +563,7 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = F77E11B56875E716E29ECC5B /* Pods-tarotonline.release.xcconfig */;
+			baseConfigurationReference = 0B9FD9850C88A026EA3280BF /* Pods-tarotonline.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
@@ -634,7 +636,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",
@@ -693,7 +695,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					/usr/lib/swift,
 					"$(inherited)",

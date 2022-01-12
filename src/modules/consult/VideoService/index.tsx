@@ -373,7 +373,6 @@ export function VideoService({route}: any) {
 
   function handleChatOff() {
     const IsIniciadoCobranca = attDetail?.IsIniciadoCobranca;
-    console.log('IsIniciadoCobranca:', IsIniciadoCobranca);
     if (IsIniciadoCobranca === 'S') {
       api.post(`atendimentos/finalizar/${serviceCode}/`);
     }

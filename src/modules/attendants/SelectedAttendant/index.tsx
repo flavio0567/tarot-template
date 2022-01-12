@@ -267,7 +267,7 @@ export function SelectedAttendant({route}: any) {
                   serviceChannel === 'videocam'
                     ? theme.colors.secondary
                     : '#fff',
-                top: 4,
+                top: 3,
               }}
             />
           </ButtonServiceChannel>

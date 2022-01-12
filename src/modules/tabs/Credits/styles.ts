@@ -5,14 +5,16 @@ import {RectButton} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const {width} = Dimensions.get('window');
+const os = Platform.OS;
 
 export const Container = styled.SafeAreaView`
   background-color: ${({theme}) => theme.colors.shape};
   height: 100%;
+  /* margin-top: ${os === 'ios' ? RFValue(56) : RFValue(12)}px; */
 `;
 
 export const BoxSelection = styled.View`
-  margin-top: 106px;
+  margin-top: 10%;
   margin-left: 20px;
   margin-right: 20px;
   background-color: ${({theme}) => theme.colors.secondary};
@@ -29,7 +31,6 @@ export const SelectionWrapper = styled.View`
 `;
 
 export const ModalTextLabel = styled.Text`
-  margin-top: 8px;
   padding-left: 10px;
   font-size: ${RFValue(14)};
   color: ${({theme}) => theme.colors.shape};
@@ -39,7 +40,7 @@ export const ModalTextLabel = styled.Text`
 export const Title = styled.View`
   flex-direction: row;
   justify-content: flex-start;
-  margin-top: ${Platform.OS === 'ios' ? RFValue(28) : RFValue(40)}px;
+  margin-top: ${Platform.OS === 'ios' ? RFValue(20) : RFValue(24)}px;
 `;
 
 export const TitleText = styled.Text`
@@ -67,7 +68,7 @@ export const BackButton = styled(RectButton)`
 export const Icon = styled(Ionicons)`
   color: ${({theme}) => theme.colors.secondary};
   font-size: ${RFValue(22)}px;
-  margin-top: ${Platform.OS === 'ios' ? RFValue(-4) : RFValue(3)}px;
+  /* margin-top: ${Platform.OS === 'ios' ? RFValue(-4) : RFValue(3)}px; */
 `;
 
 export const SelectButton = styled(RectButton)`

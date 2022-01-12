@@ -23,7 +23,7 @@ export const Container = styled.ScrollView`
 export const NavBack = styled.SafeAreaView`
   flex-direction: row;
   align-items: center;
-  height: ${RFValue(28)}px;
+  height: ${RFValue(38)}px;
 `;
 
 export const Header = styled.View`
@@ -54,10 +54,10 @@ export const UserInfo = styled.View`
 
 export const UserName = styled.Text`
   width: ${RFValue(200)}px;
-  height: ${RFValue(44)}px;
+  height: ${RFValue(50)}px;
   color: ${({theme}) => theme.colors.text};
 
-  font-size: ${RFValue(14)}px;
+  font-size: ${RFValue(12)}px;
   font-family: ${({theme}) => theme.fonts.bold};
 `;
 
@@ -147,10 +147,10 @@ export const ButtonServiceChannel = styled(RectButton)`
   justify-content: center;
   align-items: center;
 
-  width: ${RFValue(44)}px;
-  height: ${RFValue(44)}px;
+  width: ${RFValue(54)}px;
+  height: ${RFValue(54)}px;
   background-color: ${({theme}) => theme.colors.primary};
-  border-radius: 24px;
+  border-radius: 32px;
   margin: 12px;
   padding-bottom: 5px;
 `;
@@ -170,7 +170,7 @@ export const ButtonText = styled.Text`
 
 export const Icon = styled(Ionicons)`
   color: ${({theme}) => theme.colors.secondary};
-  font-size: ${RFValue(28)}px;
+  font-size: ${RFValue(34)}px;
 `;
 
 export const IconBack = styled(Ionicons)`
@@ -180,14 +180,14 @@ export const IconBack = styled(Ionicons)`
 
 export const ChatIconService = styled(Entypo)`
   color: ${({theme}) => theme.colors.secondary};
-  font-size: ${RFValue(28)}px;
+  font-size: ${RFValue(32)}px;
 `;
 
 export const Separator = styled.SafeAreaView`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  height: ${RFValue(28)}px;
+  height: ${RFValue(38)}px;
   background-color: ${({theme}) => theme.colors.primary};
 `;
 

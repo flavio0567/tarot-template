@@ -9,7 +9,7 @@ const {width} = Dimensions.get('window');
 
 export const Container = styled.View`
   flex: 1;
-  margin-top: 50px;
+  margin-top: 48px;
 `;
 
 export const Icon = styled(Ionicons)`
@@ -21,7 +21,7 @@ export const Separator = styled.View`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  height: ${RFValue(28)}px;
+  height: ${RFValue(42)}px;
 `;
 
 export const SeparatorText = styled.Text`
@@ -29,7 +29,7 @@ export const SeparatorText = styled.Text`
   color: ${({theme}) => theme.colors.secondary};
   font-size: 18px;
   font-weight: bold;
-  margin-left: ${width / 6}px;
+  margin-left: ${width / 6.8}px;
 `;
 
 export const BackButton = styled(RectButton)`

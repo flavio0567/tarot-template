@@ -42,7 +42,7 @@ class Fire {
       databaseDataRef,
       (snapshot: {exists: () => any; val: () => any}) => {
         if (snapshot.exists()) {
-          console.log('snapshot nos dados: ');
+          console.log('snapshot data ');
         }
       },
     );
@@ -54,7 +54,7 @@ class Fire {
 
     onValue(this.databaseMsgRef, snapshot => {
       if (snapshot.exists()) {
-        console.log('snapshot na mensagem: ');
+        console.log('snapshot message ');
       } else {
         console.log('No data available');
       }

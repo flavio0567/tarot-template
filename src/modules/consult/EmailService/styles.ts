@@ -1,11 +1,12 @@
 import styled from 'styled-components/native';
-import {Dimensions} from 'react-native';
+import {Dimensions, Platform} from 'react-native';
 import {RectButton} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 import {RFValue} from 'react-native-responsive-fontsize';
 
 const {width} = Dimensions.get('window');
+const os = Platform.OS;
 
 export const Container = styled.View`
   flex: 1;
@@ -36,7 +37,7 @@ export const Separator = styled.View`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  height: ${RFValue(28)}px;
+  height: ${RFValue(38)}px;
 `;
 
 export const SeparatorText = styled.Text`
@@ -44,7 +45,7 @@ export const SeparatorText = styled.Text`
   color: ${({theme}) => theme.colors.secondary};
   font-size: 18px;
   font-weight: bold;
-  margin-left: ${width / 6}px;
+  margin-left: ${width / 8}px;
 `;
 
 export const BackButton = styled(RectButton)`
@@ -71,8 +72,8 @@ export const PriceLabel = styled.Text`
 
 export const MessageText = styled.TextInput`
   flex: 1;
-  width: ${RFValue(272)};
-  height: ${RFValue(160)};
+  width: ${os === 'ios' ? RFValue(278) : RFValue(310)};
+  height: ${os === 'ios' ? RFValue(160) : RFValue(140)};
   padding: 14px;
   margin-bottom: 6px;
   background-color: ${({theme}) => theme.colors.shape};

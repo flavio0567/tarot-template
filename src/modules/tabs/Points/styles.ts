@@ -5,6 +5,7 @@ import {RectButton} from 'react-native-gesture-handler';
 import Ionicons from 'react-native-vector-icons/Ionicons';
 
 const {width} = Dimensions.get('window');
+const os = Platform.OS;
 
 export const Container = styled.SafeAreaView`
   background-color: ${({theme}) => theme.colors.shape};
@@ -12,7 +13,7 @@ export const Container = styled.SafeAreaView`
 `;
 
 export const BoxSelection = styled.View`
-  margin-top: 106px;
+  margin-top: 10%;
   margin-left: 20px;
   margin-right: 20px;
   background-color: ${({theme}) => theme.colors.secondary};
@@ -22,7 +23,7 @@ export const BoxSelection = styled.View`
 `;
 
 export const ModalTextLabel = styled.Text`
-  margin-top: 8px;
+  margin-top: 10px;
   padding-left: 10px;
   font-size: ${RFValue(14)};
   color: ${({theme}) => theme.colors.shape};
@@ -34,6 +35,7 @@ export const Title = styled.View`
   justify-content: flex-start;
   align-items: center;
   align-items: center;
+  margin-top: ${Platform.OS === 'ios' ? RFValue(4) : RFValue(11)}px;
 `;
 
 export const TitleText = styled.Text`
@@ -42,7 +44,6 @@ export const TitleText = styled.Text`
   font-size: 18px;
   font-weight: bold;
   margin-left: ${width / 3.8}px;
-  margin-top: ${Platform.OS === 'ios' ? RFValue(8) : RFValue(24)}px;
 `;
 
 export const Separator = styled.View`
@@ -54,7 +55,7 @@ export const Separator = styled.View`
 `;
 
 export const BackButton = styled(RectButton)`
-  margin-top: 34px;
+  margin-top: ${os === 'ios' ? RFValue(4) : RFValue(16)}px;
   width: ${RFValue(48)}px;
   height: ${RFValue(48)}px;
   color: ${({theme}) => theme.colors.secondary};
@@ -69,6 +70,7 @@ export const Icon = styled(Ionicons)`
 export const IconBack = styled(Ionicons)`
   color: ${({theme}) => theme.colors.secondary};
   font-size: ${RFValue(22)}px;
+  margin-top: 3px;
 `;
 
 export const SelectButton = styled(RectButton)`

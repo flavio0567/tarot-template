@@ -9,7 +9,6 @@ const {width} = Dimensions.get('window');
 export const Container = styled.SafeAreaView`
   background-color: ${({theme}) => theme.colors.shape};
   height: 100%;
-  margin-top: 16px;
 `;
 
 export const BoxSelection = styled.View`
@@ -42,8 +41,8 @@ export const TitleText = styled.Text`
   color: ${({theme}) => theme.colors.secondary};
   font-size: 18px;
   font-weight: bold;
-  margin-left: ${width / 8}px;
-  margin-top: ${Platform.OS === 'ios' ? RFValue(8) : RFValue(14)}px;
+  margin-left: ${width / 10}px;
+  margin-top: ${Platform.OS === 'ios' ? RFValue(0) : RFValue(14)}px;
 `;
 
 export const Separator = styled.View`
@@ -55,7 +54,7 @@ export const Separator = styled.View`
 `;
 
 export const BackButton = styled(RectButton)`
-  margin-top: 18px;
+  margin-top: 14px;
   width: ${RFValue(48)}px;
   height: ${RFValue(48)}px;
   color: ${({theme}) => theme.colors.secondary};

@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react';
+import React, {useState} from 'react';
 import {RectButtonProps} from 'react-native-gesture-handler';
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
 import {useNavigation} from '@react-navigation/native';
@@ -11,6 +11,7 @@ import api from '../../../shared/services/api';
 import {useAuth} from '../../../shared/hooks/globalContext';
 
 import {
+  ContainerWrapper,
   Container,
   Header,
   Title,
@@ -137,66 +138,68 @@ export function AttendantCard({attendant}: Props) {
   }
 
   return (
-    <Container onPress={() => handleAttendantDetails('')}>
-      <Header>
-        <Title maxFontSizeMultiplier={1.2}>{item.Cadastro.Nome}</Title>
-      </Header>
+    <ContainerWrapper>
+      <Container onPress={() => handleAttendantDetails('')}>
+        <Header>
+          <Title maxFontSizeMultiplier={1.2}>{item.Cadastro.Nome}</Title>
+        </Header>
 
-      <Content>
-        {item.Cadastro.Foto ? (
-          <Photo source={{uri: item.Cadastro.Foto}} />
-        ) : (
-          <Photo
-            source={{
-              uri: `https://ui-avatars.com/api/?name=${item.Cadastro.Nome}&length=1`,
-            }}
-          />
-        )}
-        <PricePerMinute>
-          <PricePerMinuteText maxFontSizeMultiplier={1.4}>
-            {new Intl.NumberFormat('pt-BR', {
-              style: 'currency',
-              currency: 'BRL',
-            }).format(item.ValorPorMinuto)}
-            /min
-          </PricePerMinuteText>
-        </PricePerMinute>
-        <ButtonWrapper>
-          {item.FormasAtt.Telefone === 'DISPONIVEL' && (
-            <Button onPress={() => handleSelection('call')}>
-              <IconService name="call" />
-            </Button>
+        <Content>
+          {item.Cadastro.Foto ? (
+            <Photo source={{uri: item.Cadastro.Foto}} />
+          ) : (
+            <Photo
+              source={{
+                uri: `https://ui-avatars.com/api/?name=${item.Cadastro.Nome}&length=1`,
+              }}
+            />
           )}
-          {item.FormasAtt.Chat !== 'NAOATENDENTE' && (
-            <Button onPress={() => handleSelection('chat')}>
-              <ChatIconService name="chat" />
-            </Button>
-          )}
-          {item.FormasAtt.Video === 'DISPONIVEL' && (
-            <Button onPress={() => handleSelection('videocam')}>
-              <IconService name="videocam" />
-            </Button>
-          )}
-          {item.FormasAtt.Email !== 'NAOATENDENTE' && (
-            <Button onPress={() => handleSelection('mail')}>
-              <IconService name="mail" />
-            </Button>
-          )}
-        </ButtonWrapper>
-        <Availability>
-          <AvailabilityWrapper>
-            <AvailabilityText
-              maxFontSizeMultiplier={1.4}
-              type={item.Cadastro.Status}
-              title={item.Cadastro.Status}>
-              {item.Cadastro.Status}
-            </AvailabilityText>
-          </AvailabilityWrapper>
-          <AvailabilityWrapper>
-            <PerfilText maxFontSizeMultiplier={1.4}>Ver Perfil</PerfilText>
-          </AvailabilityWrapper>
-        </Availability>
-      </Content>
-    </Container>
+          <PricePerMinute>
+            <PricePerMinuteText maxFontSizeMultiplier={1.4}>
+              {new Intl.NumberFormat('pt-BR', {
+                style: 'currency',
+                currency: 'BRL',
+              }).format(item.ValorPorMinuto)}
+              /min
+            </PricePerMinuteText>
+          </PricePerMinute>
+          <ButtonWrapper accessible>
+            {item.FormasAtt.Telefone === 'DISPONIVEL' && (
+              <Button onPress={() => handleSelection('call')}>
+                <IconService name="call" />
+              </Button>
+            )}
+            {item.FormasAtt.Chat !== 'NAOATENDENTE' && (
+              <Button onPress={() => handleSelection('chat')}>
+                <ChatIconService name="chat" />
+              </Button>
+            )}
+            {item.FormasAtt.Video === 'DISPONIVEL' && (
+              <Button onPress={() => handleSelection('videocam')}>
+                <IconService name="videocam" />
+              </Button>
+            )}
+            {item.FormasAtt.Email !== 'NAOATENDENTE' && (
+              <Button onPress={() => handleSelection('mail')}>
+                <IconService name="mail" />
+              </Button>
+            )}
+          </ButtonWrapper>
+          <Availability>
+            <AvailabilityWrapper>
+              <AvailabilityText
+                maxFontSizeMultiplier={1.4}
+                type={item.Cadastro.Status}
+                title={item.Cadastro.Status}>
+                {item.Cadastro.Status}
+              </AvailabilityText>
+            </AvailabilityWrapper>
+            <AvailabilityWrapper>
+              <PerfilText maxFontSizeMultiplier={1.4}>Ver Perfil</PerfilText>
+            </AvailabilityWrapper>
+          </Availability>
+        </Content>
+      </Container>
+    </ContainerWrapper>
   );
 }

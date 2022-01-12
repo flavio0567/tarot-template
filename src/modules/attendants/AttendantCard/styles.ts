@@ -14,21 +14,27 @@ interface TypeProps {
   title: string;
 }
 
+export const ContainerWrapper = styled(RectButton)`
+  align-items: center;
+  width: 86%;
+  background-color: ${({theme}) => theme.colors.primary};
+  border-radius: 10px;
+  padding: 6px 0;
+  margin: 10px;
+  margin-left: 6%;
+  margin-bottom: 12px;
+`;
+
 export const Container = styled(RectButton)`
   align-items: center;
-  width: 80%;
+  width: 96%;
   background-color: ${({theme}) => theme.colors.shape};
-  border-radius: 10px;
-  margin-left: 10%;
-  margin-bottom: 30px;
-  padding: 10px;
-  border: solid;
-  border-width: 5px;
-  border-style: dotted;
-  /* border-left-width: 5px;
-  border-right-width: 5px;
-  border-top-width: 5px;
-  border-bottom-width: 5px; */
+  border-radius: 6px;
+
+  padding: 10px 0;
+
+  /* border: solid; */
+  /* border-width: 5px; */
   border-color: ${({theme}) => theme.colors.attention};
 `;
 
@@ -74,10 +80,10 @@ export const Button = styled(RectButton)`
   justify-content: space-evenly;
   align-items: center;
 
-  width: ${RFValue(44)}px;
-  height: ${RFValue(44)}px;
+  width: ${RFValue(54)}px;
+  height: ${RFValue(54)}px;
   background-color: ${({theme}) => theme.colors.primary};
-  border-radius: 24px;
+  border-radius: 32px;
 `;
 
 export const IconService = styled(Ionicons)`
@@ -103,7 +109,7 @@ export const Availability = styled.View`
 
 export const AvailabilityWrapper = styled.View`
   /* margin: 4px; */
-  padding: 10px;
+  padding: 8px;
   border-radius: 6px;
   background-color: ${({theme}) => theme.colors.primary};
 `;

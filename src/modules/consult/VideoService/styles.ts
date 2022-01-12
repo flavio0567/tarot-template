@@ -30,7 +30,7 @@ export const Separator = styled.View`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  height: ${RFValue(28)}px;
+  height: ${RFValue(32)}px;
 `;
 
 export const SeparatorText = styled.Text`
@@ -72,7 +72,7 @@ export const Time = styled.Text`
 
 export const Button = styled(RectButton)`
   width: 100%;
-  background-color: ${({ theme }) => theme.colors.attention}
+  background-color: ${({theme}) => theme.colors.attention}
   align-items: center;
   padding: 18px;
 `;

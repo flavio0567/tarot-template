@@ -19,7 +19,6 @@ import {
   BackButton,
   Icon,
   StatusWrapper,
-  IconStart,
   ChatIconService,
   Availability,
   AttendantWrapper,
@@ -32,7 +31,6 @@ import {
   Separator,
   SeparatorText,
   TimeTableText,
-  CommentView,
   CommentHeader,
   CommentNameView,
   CommentedBy,
@@ -133,7 +131,7 @@ export function AttendantDetails({route}: any) {
               {attendant.Cadastro.Nota && (
                 <Rating
                   readonly
-                  imageSize={20}
+                  imageSize={18}
                   startingValue={attendant.Cadastro.Nota}
                 />
               )}
@@ -145,7 +143,9 @@ export function AttendantDetails({route}: any) {
                 {attendant.Cadastro.Nome}
               </Title>
 
-              <BackButton onPress={() => navigation.goBack()} />
+              <BackButton onPress={() => navigation.goBack()}>
+                <Icon name="close-outline" style={{fontSize: 28}} />
+              </BackButton>
             </AttendantName>
             <AttendantDescription>
               <ProfileDetailsText maxFontSizeMultiplier={1.4}>

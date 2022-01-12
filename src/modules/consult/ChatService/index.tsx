@@ -332,7 +332,6 @@ export function ChatService({route}: any) {
 
   function handleChatOff() {
     const IsIniciadoCobranca = attDetail?.IsIniciadoCobranca;
-    console.log('IsIniciadoCobranca:', IsIniciadoCobranca);
     if (IsIniciadoCobranca === 'S') {
       api.post(`atendimentos/finalizar/${serviceCode}/`);
     }
@@ -353,7 +352,7 @@ export function ChatService({route}: any) {
       {Platform.OS === 'android' ? (
         <KeyboardAvoidingView
           style={{flex: 1}}
-          behavior="padding"
+          behavior="height"
           keyboardVerticalOffset={30}
           enabled>
           {chat}

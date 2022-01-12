@@ -102,10 +102,10 @@ export const CreditImage = styled.Image`
 
 export const CardText = styled.Text`
   font-family: ${({theme}) => theme.fonts.bold};
-  font-size: 18px;
+  font-size: 16px;
   color: ${({theme}) => theme.colors.primary};
   padding-left: 12px;
-  margin-top: 8px;
+  margin-top: 4px;
 `;
 
 export const BoxTimeToRelease = styled.View`
