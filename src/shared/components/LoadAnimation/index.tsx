@@ -13,7 +13,7 @@ export function LoadAnimation() {
       <LottieView
         source={loadAnimation}
         // eslint-disable-next-line react-native/no-inline-styles
-        style={{height: 200, backgroundColor: theme.colors.secondary}}
+        style={{height: 200, backgroundColor: theme.colors.shape}}
         resizeMode="contain"
         autoPlay
         loop
