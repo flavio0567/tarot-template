@@ -15,7 +15,7 @@ import {PasswordInput} from '../../../../shared/components/PasswordInput';
 
 import LogoSvg from '../../../../assets/tarotonline_logo.svg';
 import FacebookSvg from '../../../../assets/fb_logo.svg';
-import GoogleSvg from '../../../../assets/google_logo.svg';
+// import GoogleSvg from '../../../../assets/google_logo.svg';
 import AppleSvg from '../../../../assets/apple_logo.svg';
 import {useAuth} from '../../../../shared/hooks/globalContext';
 
@@ -43,7 +43,7 @@ export function SignIn() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [isLoading, setIsLoading] = useState(false);
-  const {signInWithFacebook, signInWithApple, signInWithGoogle} = useAuth();
+  const {signInWithFacebook, signInWithApple} = useAuth();
 
   async function handleSignInWithFacebook() {
     try {

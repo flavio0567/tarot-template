@@ -3,6 +3,7 @@ import {
   Platform,
   KeyboardAvoidingView,
   SafeAreaView,
+  Keyboard,
   Text,
   View,
 } from 'react-native';
@@ -14,11 +15,7 @@ import {useNavigation} from '@react-navigation/native';
 import api from '../../../shared/services/api';
 import {useAuth} from '../../../shared/hooks/globalContext';
 import uuid from 'react-native-uuid';
-import {
-  GiftedChat,
-  InputToolbar,
-  SystemMessage,
-} from 'react-native-gifted-chat';
+import {GiftedChat, InputToolbar} from 'react-native-gifted-chat';
 
 import tarotIcon from '../../../assets/tarot_icon.png';
 
@@ -120,7 +117,7 @@ export function VideoService({route}: any) {
 
   const [messages, setMessages] = useState<MsgProps[]>([]);
   const {user} = useAuth();
-  const theme = useTheme();
+  // const theme = useTheme();
 
   const [serviceCode, setServiceCode] = useState(0);
   const {Cadastro} = attendant;
@@ -129,7 +126,7 @@ export function VideoService({route}: any) {
   const [time, setTime] = useState(0);
   const [amountSeconds, setAmountSeconds] = useState(0);
   const [amountMinutes, setAmountMinutes] = useState(0);
-  const [timeFormatted, setTimeFormatted] = useState('');
+  const [myTimeFormatted, setMyTimeFormatted] = useState('');
   const [spendingTime, setSpendingTime] = useState('');
 
   const [remainingMinutes, setRemainingMinutes] = useState(0);
@@ -235,7 +232,7 @@ export function VideoService({route}: any) {
           timeFormatted = timeFormatted + ' ' + xminutes + 'm';
         }
 
-        setTimeFormatted(timeFormatted);
+        setMyTimeFormatted(timeFormatted);
       }
     }
   };
@@ -365,7 +362,7 @@ export function VideoService({route}: any) {
       renderInputToolbar={props => customtInputToolbar(props)}
       renderSystemMessage={props => customSystemMessage(props)}
       onSend={message => {
-        onSend(message), send(message);
+        onSend(message), send(message), Keyboard.dismiss();
       }}
       user={{_id: user.id}}
     />
@@ -398,14 +395,23 @@ export function VideoService({route}: any) {
           enabled>
           {attDetail?.IsIniciadoCobranca === 'S' && (
             <WebView
+              style={{opacity: 0.99, overflow: 'hidden'}}
               originWhitelist={['*']}
               bounces={true}
-              automaticallyAdjustContentInsets={false}
+              javaScriptEnabled
+              cacheEnabled={true}
+              geolocationEnabled={false}
+              javaScriptEnabledAndroid={true}
               allowInlineMediaPlayback={true}
               mediaPlaybackRequiresUserAction={false}
+              automaticallyAdjustContentInsets={false}
               androidHardwareAccelerationDisabled={true}
+              mixedContentMode={'compatibility'}
+              scalesPageToFit
               source={{uri: `${iFrame}`}}
               useWebkit
+              userAgent="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/78.0.3904.97 Safari/537.36"
+              maxFontSizeMultiplier={1.4}
             />
           )}
           {chat}
@@ -420,7 +426,6 @@ export function VideoService({route}: any) {
               javaScriptEnabled
               cacheEnabled={true}
               geolocationEnabled={false}
-              javaScriptEnabledAndroid={true}
               allowInlineMediaPlayback={true}
               mediaPlaybackRequiresUserAction={false}
               mixedContentMode={'compatibility'}
@@ -440,7 +445,7 @@ export function VideoService({route}: any) {
           <TimeInfoLabel>
             <Time maxFontSizeMultiplier={1.4}>Tempo Restante</Time>
           </TimeInfoLabel>
-          <Time maxFontSizeMultiplier={1.4}>{timeFormatted}</Time>
+          <Time maxFontSizeMultiplier={1.4}>{myTimeFormatted}</Time>
         </TimeInfo>
         <TimeInfo>
           <TimeInfoLabel>
