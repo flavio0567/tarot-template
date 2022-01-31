@@ -93,7 +93,6 @@ export function CallService({route}: any) {
   const [attDetail, setAttDetail] = useState<AttDetailProps>();
   const [time, setTime] = useState(0);
   const [amountSeconds, setAmountSeconds] = useState(0);
-  const [amountTime, setAmountTime] = useState(0);
   const [amountMinutes, setAmountMinutes] = useState(0);
   const [timeFormatted, setTimeFormatted] = useState('');
   const [spendingTime, setSpendingTime] = useState('');
@@ -112,6 +111,7 @@ export function CallService({route}: any) {
     });
 
     setIsLoading(true);
+    console.log('value:', value, 'phonenumber:', phoneNumber);
     await api
       .post('atendimentos/telefone/219/', {
         TelefoneDDI: value,
@@ -132,7 +132,7 @@ export function CallService({route}: any) {
       .catch(error => {
         setIsLoading(false);
         console.log('error no call atendimentos/telefone/att', error);
-        handleChatOff();
+        handleHangUp();
       });
   };
 
@@ -278,7 +278,7 @@ export function CallService({route}: any) {
     };
   }
 
-  function handleChatOff() {
+  function handleHangUp() {
     api
       .post(`atendimentos/finalizar/${serviceCode}/`)
       .then(res => console.log('retorno no final:', res.data));
@@ -298,12 +298,7 @@ export function CallService({route}: any) {
       </Separator>
 
       {Platform.OS === 'android' ? (
-        <KeyboardAvoidingView
-          // eslint-disable-next-line react-native/no-inline-styles
-          style={{flex: 1}}
-          behavior="padding"
-          keyboardVerticalOffset={30}
-          enabled>
+        <KeyboardAvoidingView behavior="height">
           <Country>
             <ModalTextLabel maxFontSizeMultiplier={1.4}>
               Informe o número do seu celular
@@ -341,7 +336,7 @@ export function CallService({route}: any) {
           </Country>
         </KeyboardAvoidingView>
       ) : (
-        <KeyboardAvoidingView behavior="height" enabled>
+        <KeyboardAvoidingView behavior="padding" enabled>
           <TouchableWithoutFeedback onPress={Keyboard.dismiss}>
             <Country>
               <ModalTextLabel maxFontSizeMultiplier={1.4}>
@@ -397,7 +392,7 @@ export function CallService({route}: any) {
           <Time maxFontSizeMultiplier={1.4}>{spendingTime}</Time>
         </TimeInfo>
       </TimeInfoWrapper>
-      <ButtonClose onPress={handleChatOff}>
+      <ButtonClose onPress={handleHangUp}>
         <Time maxFontSizeMultiplier={1.4}>Finalizar Atendimento</Time>
       </ButtonClose>
     </Container>
