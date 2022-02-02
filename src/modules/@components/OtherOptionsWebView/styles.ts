@@ -27,8 +27,8 @@ export const Separator = styled.View`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  height: ${RFValue(28)}px;
-  /* background-color: ${({theme}) => theme.colors.primary}; */
+  height: ${RFValue(32)}px;
+  margin-bottom: 5px;
 `;
 
 export const SeparatorText = styled.Text`
