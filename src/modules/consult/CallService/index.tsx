@@ -4,7 +4,7 @@ import {
   KeyboardAvoidingView,
   TouchableWithoutFeedback,
   Keyboard,
-  // Text,
+  Alert,
 } from 'react-native';
 
 import DropDownPicker from 'react-native-dropdown-picker';
@@ -31,7 +31,6 @@ import {
   TimeInfo,
   Time,
   Country,
-  ModalText,
   ModalTextLabel,
   Form,
   ButtonClose,
@@ -136,7 +135,6 @@ export function CallService({route}: any) {
       });
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleRemainingMinutes = () => {
     if (attDetail?.IsIniciadoCobranca === 'S') {
       setTime(serverTime - attDetail.InicioCobranca);
@@ -152,7 +150,6 @@ export function CallService({route}: any) {
     }
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleRemainingTime = () => {
     const diff: number = Math.ceil(parseFloat(String(remainingTime)));
     // eslint-disable-next-line no-shadow
@@ -191,8 +188,9 @@ export function CallService({route}: any) {
     }
   };
 
-  // eslint-disable-next-line react-hooks/exhaustive-deps
   const handleSpendingTime = () => {
+    console.log('inicio cobranca:', attDetail?.InicioCobranca);
+
     if (serverTime && attDetail?.InicioCobranca! > 0) {
       const diff = serverTime - attDetail?.InicioCobranca!;
 
@@ -207,7 +205,7 @@ export function CallService({route}: any) {
       const xminutes = ('00' + minutes).substring(('00' + minutes).length - 2);
       const xseconds = ('00' + seconds).substring(('00' + seconds).length - 2);
 
-      // eslint-disable-next-line no-shadow
+      // eslint-disable-next-line @typescript-eslint/no-shadow
       let timeFormatted = '';
 
       if (hours > 0) {
@@ -236,12 +234,7 @@ export function CallService({route}: any) {
       handleSpendingTime();
     }, 1000);
     return () => clearTimeout(timer);
-  }, [
-    handleRemainingMinutes,
-    handleRemainingTime,
-    handleSpendingTime,
-    serverTime,
-  ]);
+  }, [serverTime]);
 
   function init(config: ConfigProps) {
     let isMounted = true;
@@ -259,8 +252,13 @@ export function CallService({route}: any) {
           (snapshot: {exists: () => any; val: () => any}) => {
             if (snapshot.exists()) {
               setAttDetail(snapshot.val());
-            } else {
-              console.log('snapshot not found:', snapshot);
+
+              if (snapshot.val().CodigoStatus === '4') {
+                Alert.alert('Atendimento encerrado pelo Atendente!');
+                api.post(`atendimentos/finalizar/${serviceCode}/`);
+                setAttDetail({} as AttDetailProps);
+                navigation.navigate('Main');
+              }
             }
           },
         );
@@ -279,17 +277,20 @@ export function CallService({route}: any) {
   }
 
   function handleHangUp() {
-    api
-      .post(`atendimentos/finalizar/${serviceCode}/`)
-      .then(res => console.log('retorno no final:', res.data));
+    const IsIniciadoCobranca = attDetail?.IsIniciadoCobranca;
 
+    if (serviceCode && IsIniciadoCobranca === 'S') {
+      api
+        .post(`atendimentos/finalizar/${serviceCode}/`)
+        .then(res => console.log('retorno no final:', res.data));
+    }
     navigation.navigate('Main');
   }
 
   return (
     <Container>
       <Separator>
-        <BackButton onPress={() => navigation.goBack()}>
+        <BackButton onPress={handleHangUp}>
           <Icon name="chevron-back" />
         </BackButton>
         <SeparatorText maxFontSizeMultiplier={1.4}>
@@ -298,7 +299,7 @@ export function CallService({route}: any) {
       </Separator>
 
       {Platform.OS === 'android' ? (
-        <KeyboardAvoidingView behavior="height">
+        <KeyboardAvoidingView behavior="height" keyboardVerticalOffset={-500}>
           <Country>
             <ModalTextLabel maxFontSizeMultiplier={1.4}>
               Informe o número do seu celular

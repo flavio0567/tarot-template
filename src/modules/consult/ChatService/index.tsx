@@ -79,11 +79,8 @@ export function ChatService({route}: any) {
 
   const [messages, setMessages] = useState<MsgProps[]>([]);
   const {user} = useAuth();
-  const theme = useTheme();
 
-  // const [isLoaded, setLoaded] = useState(false);
   const [serviceCode, setServiceCode] = useState(0);
-  // const [progress, setProgress] = useState(0);
   const {Cadastro} = attendant;
 
   const [attDetail, setAttDetail] = useState<AttDetailProps>();
@@ -323,7 +320,6 @@ export function ChatService({route}: any) {
     <GiftedChat
       messages={messages}
       onSend={message => {
-        // eslint-disable-next-line no-sequences
         onSend(message), send(message);
       }}
       user={{_id: user.id}}

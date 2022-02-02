@@ -12,7 +12,6 @@ export const Container = styled.View`
 `;
 
 export const Form = styled.View`
-  /* margin-top: 64px; */
   align-items: center;
   padding: 6px 6px;
 `;
@@ -34,7 +33,7 @@ export const Separator = styled.View`
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
-  height: ${RFValue(28)}px;
+  height: ${RFValue(30)}px;
 `;
 
 export const SeparatorText = styled.Text`
@@ -54,8 +53,10 @@ export const BackButton = styled(RectButton)`
 
 export const TimeInfoWrapper = styled.View`
   flex-direction: row;
+  flex-wrap: wrap;
   justify-content: space-evenly;
   padding: 5px;
+  margin-top: 15px;
   background-color: ${({theme}) => theme.colors.secondary};
 `;
 
@@ -70,25 +71,22 @@ export const TimeInfoLabel = styled.Text`
 `;
 
 export const Country = styled.View`
-  margin-top: 100px;
-  margin-bottom: ${height - 626};
+  margin-top: 15px;
+  margin-bottom: ${height - 600};
   margin-left: 20px;
   margin-right: 20px;
   padding: 14px;
-  height: 340px;
-  background-color: ${({theme}) => theme.colors.background};
+  height: 360px;
   border-radius: 20px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   border: solid 2px ${({theme}) => theme.colors.secondary};
-  /* align-items: center; */
 `;
 
 export const ModalTextLabel = styled.Text`
-  /* margin-top: 4px; */
   padding: 10px;
   font-size: ${RFValue(14)};
   color: ${({theme}) => theme.colors.text};
-  font-family: ${({theme}) => theme.fonts.medium};
+  font-family: ${({theme}) => theme.fonts.regular};
 `;
 
 export const ModalText = styled.Text`
