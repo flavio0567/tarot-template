@@ -1,7 +1,6 @@
 import React, {useState, useEffect} from 'react';
 import {SafeAreaView, StatusBar} from 'react-native';
 
-import {MotiView} from 'moti';
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
 import {useNavigation} from '@react-navigation/native';
 
@@ -14,7 +13,6 @@ import {useAuth} from '../../../shared/hooks/globalContext';
 
 import {
   Container,
-  PhotoWrapper,
   Photo,
   Title,
   BackButton,
@@ -104,137 +102,132 @@ export function AttendantDetails({route}: any) {
   }
 
   return (
-    <MotiView from={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
-      <Container>
-        <StatusBar backgroundColor={theme.colors.primary_dark} />
-        <AttendantWrapper>
-          <Attendant>
-            <AttendantName>
-              <Photo source={{uri: `${attendantDetails.Foto}`}} />
+    <Container>
+      <StatusBar backgroundColor={theme.colors.primary_dark} />
+      <AttendantWrapper>
+        <Attendant>
+          <AttendantName>
+            <Photo source={{uri: `${attendantDetails.Foto}`}} />
+            <Title maxFontSizeMultiplier={1.4}>{attendant.Cadastro.Nome}</Title>
 
-              <Title maxFontSizeMultiplier={1.4}>
-                {attendant.Cadastro.Nome}
-              </Title>
-
-              <BackButton onPress={() => navigation.goBack()}>
-                <Icon name="close-outline" style={{fontSize: 28}} />
-              </BackButton>
-            </AttendantName>
-          </Attendant>
-          <AttendantDescription>
-            <ProfileDetailsText maxFontSizeMultiplier={1.4}>
-              {description}
-            </ProfileDetailsText>
-          </AttendantDescription>
-        </AttendantWrapper>
-        <ButtonWrapper>
-          <StatusWrapper>
-            <Availability
-              maxFontSizeMultiplier={1.4}
-              type={attendantDetails.Status}>
-              {attendantDetails.Status}
-            </Availability>
-            {attendant.Cadastro.Nota && (
-              <Rating
-                readonly
-                imageSize={18}
-                startingValue={attendant.Cadastro.Nota}
-              />
-            )}
-          </StatusWrapper>
-          {attendant.FormasAtt.Telefone === 'DISPONIVEL' && (
-            <Button onPress={() => handleSelection('call')}>
-              <Icon
-                name="call"
-                // eslint-disable-next-line react-native/no-inline-styles
-                style={{
-                  color: mode === 'call' ? theme.colors.secondary : '#fff',
-                  top: 6,
-                }}
-              />
-            </Button>
+            <BackButton onPress={() => navigation.goBack()}>
+              <Icon name="close-outline" style={{fontSize: 28}} />
+            </BackButton>
+          </AttendantName>
+        </Attendant>
+        <AttendantDescription>
+          <ProfileDetailsText maxFontSizeMultiplier={1.4}>
+            {description}
+          </ProfileDetailsText>
+        </AttendantDescription>
+      </AttendantWrapper>
+      <ButtonWrapper>
+        <StatusWrapper>
+          <Availability
+            maxFontSizeMultiplier={1.4}
+            type={attendantDetails.Status}>
+            {attendantDetails.Status}
+          </Availability>
+          {attendant.Cadastro.Nota && (
+            <Rating
+              readonly
+              imageSize={18}
+              startingValue={attendant.Cadastro.Nota}
+            />
           )}
-          {attendant.FormasAtt.Chat !== 'NAOATENDENTE' && (
-            <Button onPress={() => handleSelection('chat')}>
-              <ChatIconService
-                name="chat"
-                // eslint-disable-next-line react-native/no-inline-styles
-                style={{
-                  color: mode === 'chat' ? theme.colors.secondary : '#fff',
-                  top: 2,
-                }}
-              />
-            </Button>
+        </StatusWrapper>
+        {attendant.FormasAtt.Telefone === 'DISPONIVEL' && (
+          <Button onPress={() => handleSelection('call')}>
+            <Icon
+              name="call"
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{
+                color: mode === 'call' ? theme.colors.secondary : '#fff',
+                top: 6,
+              }}
+            />
+          </Button>
+        )}
+        {attendant.FormasAtt.Chat !== 'NAOATENDENTE' && (
+          <Button onPress={() => handleSelection('chat')}>
+            <ChatIconService
+              name="chat"
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{
+                color: mode === 'chat' ? theme.colors.secondary : '#fff',
+                top: 2,
+              }}
+            />
+          </Button>
+        )}
+        {attendant.FormasAtt.Video === 'DISPONIVEL' && (
+          <Button onPress={() => handleSelection('videocam')}>
+            <Icon
+              name="videocam"
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{
+                color: mode === 'videocam' ? theme.colors.secondary : '#fff',
+                top: 4,
+              }}
+            />
+          </Button>
+        )}
+        {attendant.FormasAtt.Email !== 'NAOATENDENTE' && (
+          <Button onPress={() => handleSelection('mail')}>
+            <Icon
+              name="mail"
+              // eslint-disable-next-line react-native/no-inline-styles
+              style={{
+                color: mode === 'mail' ? theme.colors.secondary : '#fff',
+                top: 4,
+              }}
+            />
+          </Button>
+        )}
+      </ButtonWrapper>
+      <Separator>
+        <SeparatorText maxFontSizeMultiplier={1.4}>Horário</SeparatorText>
+      </Separator>
+      <TimeTableText maxFontSizeMultiplier={1.4}>{timeTable}</TimeTableText>
+      <Separator>
+        <SeparatorText maxFontSizeMultiplier={1.4}>Oráculos</SeparatorText>
+      </Separator>
+      <TimeTableText maxFontSizeMultiplier={1.4}>{oracle}</TimeTableText>
+      <Separator>
+        <SeparatorText maxFontSizeMultiplier={1.4}>Depoimentos</SeparatorText>
+      </Separator>
+      <SafeAreaView style={{height: 300}}>
+        <FlatList
+          showsVerticalScrollIndicator={false}
+          // contentContainerStyle={{paddingBottom: 20}}
+          style={{height: 500, paddingBottom: 20}}
+          data={comments}
+          keyExtractor={comment => comment.Depoimento.DataCadastro}
+          renderItem={({item: comment}) => (
+            <CommentsWrapper key={comment.index}>
+              <CommentHeader>
+                <CommentNameView>
+                  <CommentedBy maxFontSizeMultiplier={1.2}>
+                    {comment.Cliente.Nome}
+                  </CommentedBy>
+                </CommentNameView>
+                <CommentDate maxFontSizeMultiplier={1.2}>
+                  {comment.Depoimento.DataCadastro}
+                </CommentDate>
+                <Rating
+                  readonly
+                  imageSize={12}
+                  startingValue={comment.Depoimento.Nota}
+                  maxFontSizeMultiplier={1.2}
+                />
+              </CommentHeader>
+              <Comments maxFontSizeMultiplier={1.2}>
+                {comment.Depoimento.Texto}
+              </Comments>
+            </CommentsWrapper>
           )}
-          {attendant.FormasAtt.Video === 'DISPONIVEL' && (
-            <Button onPress={() => handleSelection('videocam')}>
-              <Icon
-                name="videocam"
-                // eslint-disable-next-line react-native/no-inline-styles
-                style={{
-                  color: mode === 'videocam' ? theme.colors.secondary : '#fff',
-                  top: 4,
-                }}
-              />
-            </Button>
-          )}
-          {attendant.FormasAtt.Email !== 'NAOATENDENTE' && (
-            <Button onPress={() => handleSelection('mail')}>
-              <Icon
-                name="mail"
-                // eslint-disable-next-line react-native/no-inline-styles
-                style={{
-                  color: mode === 'mail' ? theme.colors.secondary : '#fff',
-                  top: 4,
-                }}
-              />
-            </Button>
-          )}
-        </ButtonWrapper>
-        <Separator>
-          <SeparatorText maxFontSizeMultiplier={1.4}>Horário</SeparatorText>
-        </Separator>
-        <TimeTableText maxFontSizeMultiplier={1.4}>{timeTable}</TimeTableText>
-        <Separator>
-          <SeparatorText maxFontSizeMultiplier={1.4}>Oráculos</SeparatorText>
-        </Separator>
-        <TimeTableText maxFontSizeMultiplier={1.4}>{oracle}</TimeTableText>
-        <Separator>
-          <SeparatorText maxFontSizeMultiplier={1.4}>Depoimentos</SeparatorText>
-        </Separator>
-        <SafeAreaView style={{height: 300}}>
-          <FlatList
-            showsVerticalScrollIndicator={false}
-            // contentContainerStyle={{paddingBottom: 20}}
-            style={{height: 500, paddingBottom: 20}}
-            data={comments}
-            keyExtractor={comment => comment.Depoimento.DataCadastro}
-            renderItem={({item: comment}) => (
-              <CommentsWrapper key={comment.index}>
-                <CommentHeader>
-                  <CommentNameView>
-                    <CommentedBy maxFontSizeMultiplier={1.2}>
-                      {comment.Cliente.Nome}
-                    </CommentedBy>
-                  </CommentNameView>
-                  <CommentDate maxFontSizeMultiplier={1.2}>
-                    {comment.Depoimento.DataCadastro}
-                  </CommentDate>
-                  <Rating
-                    readonly
-                    imageSize={12}
-                    startingValue={comment.Depoimento.Nota}
-                    maxFontSizeMultiplier={1.2}
-                  />
-                </CommentHeader>
-                <Comments maxFontSizeMultiplier={1.2}>
-                  {comment.Depoimento.Texto}
-                </Comments>
-              </CommentsWrapper>
-            )}
-          />
-        </SafeAreaView>
-      </Container>
-    </MotiView>
+        />
+      </SafeAreaView>
+    </Container>
   );
 }

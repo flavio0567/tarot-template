@@ -81,7 +81,7 @@ export const AttendantDescription = styled.ScrollView.attrs({
 `;
 
 export const ProfileDetailsText = styled.Text`
-  width: ${RFPercentage(55)}px;
+  width: ${RFPercentage(52)}px;
   font-size: ${RFValue(12)}px;
   font-family: ${({theme}) => theme.fonts.regular};
   color: ${({theme}) => theme.colors.text};
