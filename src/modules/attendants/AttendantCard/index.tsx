@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
 import {RectButtonProps} from 'react-native-gesture-handler';
+import {Alert} from 'react-native';
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
 import {useNavigation} from '@react-navigation/native';
 
@@ -77,8 +78,7 @@ export function AttendantCard({attendant}: Props) {
 
   const {item} = attendant;
   const navigation = useNavigation<NavProps>();
-
-  const {selectedMode} = useAuth();
+  const {user, selectedMode} = useAuth();
   const [loading, setLoading] = useState(false);
   const [minuteValue, setMinuteValue] = useState(0);
   const [cadastro, setCadastro] = useState<CadastroProps>({} as CadastroProps);
@@ -114,15 +114,51 @@ export function AttendantCard({attendant}: Props) {
             const {Dados} = response.data;
             setLoading(false);
             setClientComments(Dados);
-            navigation.navigate('DetailsOfAnAttendant', {
-              screen: 'AttendantDetails',
-              params: {
-                item,
-                clientComments: response.data,
-                attendantCard: attendantDescription,
-                mode,
-              },
-            });
+            // If mode selected navigate directly to Service.
+            if (!mode) {
+              navigation.navigate('DetailsOfAnAttendant', {
+                screen: 'AttendantDetails',
+                params: {
+                  item,
+                  clientComments: response.data,
+                  attendantCard: attendantDescription,
+                  mode,
+                },
+              });
+            } else {
+              let navOption: string = '';
+              if (mode === 'chat') {
+                navOption = 'ChatService';
+              } else if (mode === 'call') {
+                navOption = 'CallService';
+              } else if (mode === 'videocam') {
+                navOption = 'VideoService';
+              } else {
+                navOption = 'EmailService';
+              }
+
+              const pricePerMinute = item.ValorPorMinuto;
+
+              if (pricePerMinute) {
+                if (user.qtdcreditos > pricePerMinute * 3) {
+                  Alert.alert(
+                    'Saldo atual insuficiente.',
+                    'Para realizar uma nova consulta com tempo hábil para perguntas e respostas, favor adquirir mais créditos!',
+                  );
+                  navigation.navigate('DetailsOfAnAttendant', {
+                    screen: 'SelectedAttendant',
+                    params: {attendant, mode},
+                    previousScreen: 'AttendantCard',
+                  });
+                } else {
+                  navigation.navigate('DetailsOfAnAttendant', {
+                    screen: navOption,
+                    params: {attendant},
+                    previousScreen: 'AttendantCard',
+                  });
+                }
+              }
+            }
           });
       } catch (error) {
         console.log('Error:', error);

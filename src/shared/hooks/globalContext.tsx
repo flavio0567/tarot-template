@@ -322,7 +322,6 @@ function AuthProvider({children}: AuthProviderProps) {
         Senha: password,
       });
       const {Token, DataExpiracao} = signInResponse.data;
-      console.log('in singin token:');
       setExpiration(DataExpiracao);
       api.defaults.headers.TOKEN = Token;
 

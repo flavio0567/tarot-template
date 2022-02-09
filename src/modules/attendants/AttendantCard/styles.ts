@@ -33,8 +33,6 @@ export const Container = styled(RectButton)`
 
   padding: 10px 0;
 
-  /* border: solid; */
-  /* border-width: 5px; */
   border-color: ${({theme}) => theme.colors.attention};
 `;
 

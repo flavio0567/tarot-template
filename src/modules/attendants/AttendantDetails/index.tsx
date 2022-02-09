@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import {SafeAreaView, StatusBar} from 'react-native';
+import {SafeAreaView, StatusBar, Alert} from 'react-native';
 
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
 import {useNavigation} from '@react-navigation/native';
@@ -57,7 +57,7 @@ interface CadastroProps {
 export function AttendantDetails({route}: any) {
   const {item: attendant, clientComments, attendantCard} = route.params;
   const navigation = useNavigation<NavProps>();
-  const {mode, selectedMode} = useAuth();
+  const {user, mode, selectedMode} = useAuth();
   const theme = useTheme();
   const description = sanitizeHTML(attendantCard.Descricao);
   const timeTable = attendantCard.HorarioAtendimento;
@@ -96,9 +96,26 @@ export function AttendantDetails({route}: any) {
     return he.decode(sanitizedText);
   }
 
-  function handleSelection(mode: string) {
-    selectedMode(mode);
-    navigation.navigate('SelectedAttendant', {mode, attendant});
+  function handleSelection(modeSelected: string) {
+    selectedMode(modeSelected);
+
+    const pricePerMinute = attendant.ValorPorMinuto;
+
+    if (pricePerMinute) {
+      if (user.qtdcreditos > pricePerMinute * 3) {
+        Alert.alert(
+          'Saldo atual insuficiente.',
+          'Para realizar uma nova consulta com tempo hábil para perguntas e respostas, favor adquirir mais créditos!',
+        );
+        navigation.navigate('DetailsOfAnAttendant', {
+          screen: 'SelectedAttendant',
+          params: {attendant: {item: attendant}, modeSelected},
+          previousScreen: 'AttendantDetails',
+        });
+      } else {
+        navigation.navigate('SelectedAttendant', {modeSelected, attendant});
+      }
+    }
   }
 
   return (

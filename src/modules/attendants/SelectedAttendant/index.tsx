@@ -52,7 +52,8 @@ type ItemProps = {
 type NavProps = NavigationProp<ParamListBase>;
 
 export function SelectedAttendant({route}: any) {
-  const {attendant, mode} = route.params;
+  const {mode} = route.params;
+  const attendant: any = route.params.attendant.item;
   const {selectedMode, user} = useAuth();
   const [serviceChannel, setServiceChannel] = useState(mode);
   const [selectedSalesPrice, setSelectedSalesPrice] = useState<any>();
@@ -90,6 +91,23 @@ export function SelectedAttendant({route}: any) {
     setServiceChannel('chat');
     selectedMode('chat');
 
+    const pricePerMinute = attendant.ValorPorMinuto;
+
+    if (pricePerMinute) {
+      if (user.qtdcreditos > pricePerMinute * 3) {
+        Alert.alert(
+          'Saldo atual insuficiente.',
+          'Para realizar uma nova consulta com tempo hábil para perguntas e respostas, favor adquirir mais créditos!',
+        );
+        return;
+      }
+    } else {
+      Alert.alert(
+        'Problemas ao obter saldo.',
+        'Não foi possível obter seu saldo atualizado para efetivar a consulta, favor entrar com contato!',
+      );
+    }
+
     if (attendant.Cadastro.Status === 'DISPONIVEL') {
       async function callAPI() {
         try {
@@ -117,6 +135,23 @@ export function SelectedAttendant({route}: any) {
   async function handleCallService() {
     setServiceChannel('call');
     selectedMode('call');
+
+    const pricePerMinute = attendant.ValorPorMinuto;
+
+    if (pricePerMinute) {
+      if (user.qtdcreditos > pricePerMinute * 3) {
+        Alert.alert(
+          'Saldo atual insuficiente.',
+          'Para realizar uma nova consulta com tempo hábil para perguntas e respostas, favor adquirir mais créditos!',
+        );
+        return;
+      }
+    } else {
+      Alert.alert(
+        'Problemas ao obter saldo.',
+        'Não foi possível obter seu saldo atualizado para efetivar a consulta, favor entrar com contato!',
+      );
+    }
 
     if (attendant.Cadastro.Status === 'DISPONIVEL') {
       async function callAPI() {
@@ -146,6 +181,23 @@ export function SelectedAttendant({route}: any) {
     setServiceChannel('videocam');
     selectedMode('videocam');
 
+    const pricePerMinute = attendant.ValorPorMinuto;
+
+    if (pricePerMinute) {
+      if (user.qtdcreditos > pricePerMinute * 3) {
+        Alert.alert(
+          'Saldo atual insuficiente.',
+          'Para realizar uma nova consulta com tempo hábil para perguntas e respostas, favor adquirir mais créditos!',
+        );
+        return;
+      }
+    } else {
+      Alert.alert(
+        'Problemas ao obter saldo.',
+        'Não foi possível obter seu saldo atualizado para efetivar a consulta, favor entrar com contato!',
+      );
+    }
+
     if (attendant.Cadastro.Status === 'DISPONIVEL') {
       async function callAPI() {
         try {
@@ -173,6 +225,15 @@ export function SelectedAttendant({route}: any) {
   async function handleEmailService() {
     setServiceChannel('mail');
     selectedMode('mail');
+
+    if (user.qtdcreditos >= 49.9) {
+      Alert.alert(
+        'Saldo atual insuficiente.',
+        'Para realizar uma nova consulta com tempo hábil para perguntas e respostas, favor adquirir mais créditos!',
+      );
+      return;
+    }
+
     async function callAPI() {
       try {
         if (api.defaults.headers.TOKEN) {

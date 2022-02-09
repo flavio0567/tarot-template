@@ -46,7 +46,6 @@ export function Dashboard() {
   const [loading, setLoading] = useState(true);
   const {user, signOut} = useAuth();
   const navigation = useNavigation<NavProps>();
-
   const [selectedLanguage, setSelectedLanguage] = useState(
     'Pesquise seu Consultor por Especialidade',
   );

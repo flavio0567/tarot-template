@@ -5,7 +5,6 @@ import {RFPercentage, RFValue} from 'react-native-responsive-fontsize';
 import {getStatusBarHeight} from 'react-native-iphone-x-helper';
 import {RectButton} from 'react-native-gesture-handler';
 import {Picker} from '@react-native-picker/picker';
-import {AttendantDTO} from '../../dtos/AttendantDTO';
 
 import {getSystemVersion, getModel} from 'react-native-device-info';
 console.log('phone version:', getModel(), getSystemVersion());
@@ -27,9 +26,7 @@ export const Header = styled.View`
 
 export const SearchAttendant = styled(Picker)`
   margin: 10px;
-  /* width: 300px; */
   height: 5px;
-  /* border-width: 2px; */
   background-color: ${({theme}) => theme.colors.shape};
 `;
 
@@ -60,7 +57,6 @@ export const Photo = styled.Image`
 export const User = styled.View`
   margin-top: 10px;
   margin-left: 17px;
-  /* margin-left:  */
 `;
 
 export const UserAvatar = styled.View`
@@ -93,7 +89,7 @@ export const UserName = styled.Text`
 
 export const SideWrapper = styled.View`
   flex-direction: column;
-  margin-top: ${RFValue(20)};
+  margin-top: ${RFValue(20)}px;
 `;
 
 export const Button = styled(RectButton)`
@@ -130,9 +126,7 @@ export const SearchView = styled.View`
   margin-top: ${RFPercentage(18)}px;
 `;
 
-export const AttendantList = styled(
-  FlatList as new () => FlatList<AttendantDTO>,
-).attrs({
+export const AttendantList = styled(FlatList).attrs({
   showVerticalScrollIndicator: false,
 })`
   margin-top: ${Platform.OS === 'ios' ? RFValue(0) : RFValue(6)}px;

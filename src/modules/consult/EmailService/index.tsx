@@ -31,8 +31,10 @@ type NavProps = NavigationProp<ParamListBase>;
 
 export function EmailService({route}: any) {
   const {attendant} = route.params;
-  const {Cadastro} = attendant;
+  console.log('attendant', attendant);
+  const {Cadastro} = attendant.item;
   console.log('codigo do atendente:', Cadastro.Codigo);
+  // apos validacao das funcionalidade passar o codigo do atendente real!
 
   const navigation = useNavigation<NavProps>();
 

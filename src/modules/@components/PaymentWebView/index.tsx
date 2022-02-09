@@ -21,8 +21,8 @@ export function PaymentWebView({route}: any) {
   const [progress, setProgress] = useState(0);
   const [isLoaded, setLoaded] = useState(false);
 
-  const js =
-    "window.alert('Você será direcionado para a site TarotOnline. A qualquer momento use a seta no canto superior esquerdo para retornar ao app!')";
+  // const js =
+  // "window.alert('Você será direcionado para a site TarotOnline. A qualquer momento use a seta no canto superior esquerdo para retornar ao app!')";
 
   // const localFile = Platform.OS === 'ios' ? require('../../assets/chat.html') :
   //   { uri: 'file:///android_asset/chat.html' };

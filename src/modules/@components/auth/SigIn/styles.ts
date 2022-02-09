@@ -61,7 +61,6 @@ export const Content = styled.ScrollView.attrs({
 
 export const UserLogin = styled.View`
   width: 100%;
-  /* height: ${Platform.OS === 'ios' ? 32 : 38}%; */
 `;
 
 export const ConfirmationButton = styled.View`
