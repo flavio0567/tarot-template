@@ -21,7 +21,7 @@ export default function App() {
   return (
     <NavigationContainer>
       <ThemeProvider theme={theme}>
-        <StatusBar barStyle="dark-content" translucent />
+        <StatusBar barStyle="dark-content" />
         <AppProvider>
           <Routes />
         </AppProvider>

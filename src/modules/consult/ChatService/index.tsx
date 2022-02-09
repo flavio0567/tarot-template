@@ -1,6 +1,10 @@
-import React, {useState, useEffect, useCallback, useMemo} from 'react';
-import {Platform, KeyboardAvoidingView, SafeAreaView} from 'react-native';
-import {format} from 'date-fns';
+import React, {useState, useEffect, useCallback} from 'react';
+import {
+  Platform,
+  KeyboardAvoidingView,
+  SafeAreaView,
+  Alert,
+} from 'react-native';
 
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
 import {useNavigation} from '@react-navigation/native';
@@ -11,7 +15,6 @@ import {GiftedChat} from 'react-native-gifted-chat';
 
 import tarotIcon from '../../../assets/tarot_icon.png';
 
-import {useTheme} from 'styled-components';
 import {initializeApp} from 'firebase/app';
 
 import {
@@ -118,20 +121,24 @@ export function ChatService({route}: any) {
         setServerTime(Mktime);
       });
 
-      await api.post('atendimentos/chat/219/').then(responseChat => {
-        const {Atendimento} = responseChat.data;
-        setServiceCode(Atendimento.Codigo);
+      try {
+        await api.post('atendimentos/chat/219/').then(responseChat => {
+          const {Atendimento} = responseChat.data;
+          setServiceCode(Atendimento.Codigo);
 
-        const {ApiKey, DatabaseURL, Hash} = responseChat.data.Firebase;
+          const {ApiKey, DatabaseURL, Hash} = responseChat.data.Firebase;
 
-        const config = {
-          apiKey: ApiKey,
-          databaseURL: DatabaseURL,
-          hash: Hash,
-        };
+          const config = {
+            apiKey: ApiKey,
+            databaseURL: DatabaseURL,
+            hash: Hash,
+          };
 
-        init(config);
-      });
+          init(config);
+        });
+      } catch (error: any) {
+        Alert.alert(error);
+      }
     };
     getServerTime();
   }, []);

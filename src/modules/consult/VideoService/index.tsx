@@ -379,7 +379,7 @@ export function VideoService({route}: any) {
   return (
     <Container>
       <Separator>
-        <BackButton onPress={() => navigation.goBack()}>
+        <BackButton onPress={handleChatOff}>
           <Icon name="chevron-back" />
         </BackButton>
         <SeparatorText maxFontSizeMultiplier={1.4}>

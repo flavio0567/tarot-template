@@ -16,37 +16,20 @@ export const Container = styled.View`
   width: 100%;
   height: 100%;
   background-color: ${({theme}) => theme.colors.shape};
-  /* margin: ${RFPercentage(48)}px ${RFPercentage(20)}px; */
-  /* padding: 58px; */
-  margin-top: ${Platform.OS === 'ios' ? RFPercentage(46) : RFPercentage(52)}px;
-  margin-left: ${RFPercentage(0)}px;
   border-radius: 5px;
 `;
 
 export const PhotoWrapper = styled.View``;
 
-export const Photo = styled(Image).attrs({
-  from: {
-    rotate: '100deg',
-    opacity: 0,
-  },
-  animate: {
-    rotate: '0deg',
-    opacity: 1,
-  },
-  transitions: {
-    type: 'timing',
-    duration: 5000,
-    repeat: 5,
-  },
-})`
-  width: ${RFValue(110)}px;
-  height: ${RFValue(180)}px;
-  padding: 12px 24px;
+export const Photo = styled(Image)`
+  width: ${Platform.OS === 'ios' ? RFValue(45) : RFValue(55)}px;
+  height: ${Platform.OS === 'ios' ? RFValue(45) : RFValue(55)}px;
+
+  margin: 0px 6px 6px;
+  border-radius: 25px;
 `;
 
 export const AttendantWrapper = styled.View`
-  flex-direction: row;
   padding: 10px;
 `;
 
@@ -56,6 +39,7 @@ export const Attendant = styled.View`
 
 export const AttendantName = styled.View`
   flex-direction: row;
+  align-items: center;
   justify-content: space-between;
 `;
 
@@ -72,13 +56,14 @@ export const StatusWrapper = styled.View``;
 export const Availability = styled.Text<TypeProps>`
   font-family: ${({theme}) => theme.fonts.medium};
   font-size: ${RFValue(12)}px;
-  padding: 8px 4px;
-  margin-left: 18px
-    ${({type}) =>
-      type === 'DISPONIVEL' &&
-      css`
-        color: ${({theme}) => theme.colors.success};
-      `};
+  padding: 5px;
+  margin-left: 4px;
+  margin-right: 4px;
+  ${({type}) =>
+    type === 'DISPONIVEL' &&
+    css`
+      color: ${({theme}) => theme.colors.success};
+    `};
 
   ${({type}) =>
     type === 'OCUPADO' &&
@@ -92,11 +77,11 @@ export const Availability = styled.Text<TypeProps>`
 export const AttendantDescription = styled.ScrollView.attrs({
   showsVerticalScrollIndicator: false,
 })`
-  height: ${RFValue(150)}px;
+  height: ${RFValue(120)}px;
 `;
 
 export const ProfileDetailsText = styled.Text`
-  width: ${Platform.OS === 'ios' ? RFValue(208) : RFValue(242)}px;
+  width: ${RFPercentage(55)}px;
   font-size: ${RFValue(12)}px;
   font-family: ${({theme}) => theme.fonts.regular};
   color: ${({theme}) => theme.colors.text};
@@ -104,14 +89,17 @@ export const ProfileDetailsText = styled.Text`
 
 export const ButtonWrapper = styled.View`
   flex-direction: row;
-  justify-content: space-evenly;
+  align-items: center;
   margin-top: 10px;
+  margin-left: 10px;
 `;
 
 export const Button = styled(RectButton)`
   flex-direction: row;
   justify-content: space-evenly;
   align-items: center;
+  margin-left: 5px;
+  margin-right: 5px;
 
   width: ${RFValue(50)}px;
   height: ${RFValue(50)}px;

@@ -1,4 +1,6 @@
 import React, {useState, useEffect} from 'react';
+import {SafeAreaView, StatusBar} from 'react-native';
+
 import {MotiView} from 'moti';
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
 import {useNavigation} from '@react-navigation/native';
@@ -8,7 +10,6 @@ import {format, parse} from 'date-fns';
 import {Rating} from 'react-native-elements';
 import {FlatList} from 'react-native-gesture-handler';
 import {useTheme} from 'styled-components';
-import {SafeAreaView} from 'react-native';
 import {useAuth} from '../../../shared/hooks/globalContext';
 
 import {
@@ -97,48 +98,20 @@ export function AttendantDetails({route}: any) {
     return he.decode(sanitizedText);
   }
 
-  // eslint-disable-next-line @typescript-eslint/no-shadow
   function handleSelection(mode: string) {
     selectedMode(mode);
     navigation.navigate('SelectedAttendant', {mode, attendant});
   }
 
   return (
-    <MotiView
-      delay={200}
-      from={{
-        opacity: 0,
-        translateY: 0,
-      }}
-      animate={{
-        opacity: 1,
-        translateY: -300,
-      }}
-      transition={{
-        type: 'timing',
-        duration: 2000,
-      }}>
+    <MotiView from={{opacity: 0}} animate={{opacity: 1}} exit={{opacity: 0}}>
       <Container>
+        <StatusBar backgroundColor={theme.colors.primary_dark} />
         <AttendantWrapper>
-          <PhotoWrapper>
-            <Photo source={{uri: `${attendantDetails.Foto}`}} />
-            <StatusWrapper>
-              <Availability
-                maxFontSizeMultiplier={1.4}
-                type={attendantDetails.Status}>
-                {attendantDetails.Status}
-              </Availability>
-              {attendant.Cadastro.Nota && (
-                <Rating
-                  readonly
-                  imageSize={18}
-                  startingValue={attendant.Cadastro.Nota}
-                />
-              )}
-            </StatusWrapper>
-          </PhotoWrapper>
           <Attendant>
             <AttendantName>
+              <Photo source={{uri: `${attendantDetails.Foto}`}} />
+
               <Title maxFontSizeMultiplier={1.4}>
                 {attendant.Cadastro.Nome}
               </Title>
@@ -147,64 +120,77 @@ export function AttendantDetails({route}: any) {
                 <Icon name="close-outline" style={{fontSize: 28}} />
               </BackButton>
             </AttendantName>
-            <AttendantDescription>
-              <ProfileDetailsText maxFontSizeMultiplier={1.4}>
-                {description}
-              </ProfileDetailsText>
-            </AttendantDescription>
-            <ButtonWrapper>
-              {attendant.FormasAtt.Telefone === 'DISPONIVEL' && (
-                <Button onPress={() => handleSelection('call')}>
-                  <Icon
-                    name="call"
-                    // eslint-disable-next-line react-native/no-inline-styles
-                    style={{
-                      color: mode === 'call' ? theme.colors.secondary : '#fff',
-                      top: 6,
-                    }}
-                  />
-                </Button>
-              )}
-              {attendant.FormasAtt.Chat !== 'NAOATENDENTE' && (
-                <Button onPress={() => handleSelection('chat')}>
-                  <ChatIconService
-                    name="chat"
-                    // eslint-disable-next-line react-native/no-inline-styles
-                    style={{
-                      color: mode === 'chat' ? theme.colors.secondary : '#fff',
-                      top: 2,
-                    }}
-                  />
-                </Button>
-              )}
-              {attendant.FormasAtt.Video === 'DISPONIVEL' && (
-                <Button onPress={() => handleSelection('videocam')}>
-                  <Icon
-                    name="videocam"
-                    // eslint-disable-next-line react-native/no-inline-styles
-                    style={{
-                      color:
-                        mode === 'videocam' ? theme.colors.secondary : '#fff',
-                      top: 4,
-                    }}
-                  />
-                </Button>
-              )}
-              {attendant.FormasAtt.Email !== 'NAOATENDENTE' && (
-                <Button onPress={() => handleSelection('mail')}>
-                  <Icon
-                    name="mail"
-                    // eslint-disable-next-line react-native/no-inline-styles
-                    style={{
-                      color: mode === 'mail' ? theme.colors.secondary : '#fff',
-                      top: 4,
-                    }}
-                  />
-                </Button>
-              )}
-            </ButtonWrapper>
           </Attendant>
+          <AttendantDescription>
+            <ProfileDetailsText maxFontSizeMultiplier={1.4}>
+              {description}
+            </ProfileDetailsText>
+          </AttendantDescription>
         </AttendantWrapper>
+        <ButtonWrapper>
+          <StatusWrapper>
+            <Availability
+              maxFontSizeMultiplier={1.4}
+              type={attendantDetails.Status}>
+              {attendantDetails.Status}
+            </Availability>
+            {attendant.Cadastro.Nota && (
+              <Rating
+                readonly
+                imageSize={18}
+                startingValue={attendant.Cadastro.Nota}
+              />
+            )}
+          </StatusWrapper>
+          {attendant.FormasAtt.Telefone === 'DISPONIVEL' && (
+            <Button onPress={() => handleSelection('call')}>
+              <Icon
+                name="call"
+                // eslint-disable-next-line react-native/no-inline-styles
+                style={{
+                  color: mode === 'call' ? theme.colors.secondary : '#fff',
+                  top: 6,
+                }}
+              />
+            </Button>
+          )}
+          {attendant.FormasAtt.Chat !== 'NAOATENDENTE' && (
+            <Button onPress={() => handleSelection('chat')}>
+              <ChatIconService
+                name="chat"
+                // eslint-disable-next-line react-native/no-inline-styles
+                style={{
+                  color: mode === 'chat' ? theme.colors.secondary : '#fff',
+                  top: 2,
+                }}
+              />
+            </Button>
+          )}
+          {attendant.FormasAtt.Video === 'DISPONIVEL' && (
+            <Button onPress={() => handleSelection('videocam')}>
+              <Icon
+                name="videocam"
+                // eslint-disable-next-line react-native/no-inline-styles
+                style={{
+                  color: mode === 'videocam' ? theme.colors.secondary : '#fff',
+                  top: 4,
+                }}
+              />
+            </Button>
+          )}
+          {attendant.FormasAtt.Email !== 'NAOATENDENTE' && (
+            <Button onPress={() => handleSelection('mail')}>
+              <Icon
+                name="mail"
+                // eslint-disable-next-line react-native/no-inline-styles
+                style={{
+                  color: mode === 'mail' ? theme.colors.secondary : '#fff',
+                  top: 4,
+                }}
+              />
+            </Button>
+          )}
+        </ButtonWrapper>
         <Separator>
           <SeparatorText maxFontSizeMultiplier={1.4}>Horário</SeparatorText>
         </Separator>

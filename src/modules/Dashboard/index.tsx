@@ -1,9 +1,10 @@
 /* eslint-disable react-native/no-inline-styles */
 import React, {useState, useCallback, useEffect, useRef} from 'react';
-import {Alert} from 'react-native';
+import {Alert, StatusBar} from 'react-native';
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
 import {useNavigation} from '@react-navigation/native';
+import {useTheme} from 'styled-components';
 
 import {useAuth} from '../../shared/hooks/globalContext';
 import api from '../../shared/services/api';
@@ -40,7 +41,7 @@ type NavProps = NavigationProp<ParamListBase>;
 export function Dashboard() {
   const [attendants, setAttendants] = useState<AttendantDTO[]>([]);
   const [pagination, setPagination] = useState([]);
-  const [page, setPage] = useState(0);
+  const theme = useTheme();
   const [pricePerMinute, setPricePerMinute] = useState(0);
   const [loading, setLoading] = useState(true);
   const {user, signOut} = useAuth();
@@ -137,6 +138,7 @@ export function Dashboard() {
 
   return (
     <Container>
+      <StatusBar backgroundColor={theme.colors.primary} />
       <Header>
         <UserWrapper>
           <UserInfo>
