@@ -126,6 +126,14 @@ export function AttendantCard({attendant}: Props) {
                 },
               });
             } else {
+              if (attendant.item.Cadastro.Status !== 'DISPONIVEL') {
+                Alert.alert(
+                  'Consulta não disponível:',
+                  'O consultor não está disponível, tente novamente mais tarde!',
+                );
+                return;
+              }
+
               let navOption: string = '';
               if (mode === 'chat') {
                 navOption = 'ChatService';
@@ -138,22 +146,29 @@ export function AttendantCard({attendant}: Props) {
               }
 
               const pricePerMinute = item.ValorPorMinuto;
+              let serviceCompare: number;
+
+              if (mode === 'mail') {
+                serviceCompare = 49.9;
+              } else {
+                serviceCompare = pricePerMinute * 3;
+              }
 
               if (pricePerMinute) {
-                if (user.qtdcreditos > pricePerMinute * 3) {
+                if (user.qtdcreditos < serviceCompare) {
                   Alert.alert(
                     'Saldo atual insuficiente.',
                     'Para realizar uma nova consulta com tempo hábil para perguntas e respostas, favor adquirir mais créditos!',
                   );
                   navigation.navigate('DetailsOfAnAttendant', {
                     screen: 'SelectedAttendant',
-                    params: {attendant, mode},
+                    params: {attendant: attendant.item, mode},
                     previousScreen: 'AttendantCard',
                   });
                 } else {
                   navigation.navigate('DetailsOfAnAttendant', {
                     screen: navOption,
-                    params: {attendant},
+                    params: {attendant: attendant.item},
                     previousScreen: 'AttendantCard',
                   });
                 }

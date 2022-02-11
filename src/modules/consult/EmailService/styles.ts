@@ -66,14 +66,14 @@ export const PriceLabel = styled.Text`
   margin-bottom: 10px;
   color: ${({theme}) => theme.colors.title};
   font-family: ${({theme}) => theme.fonts.regular};
-  font-size: ${RFValue(22)};
+  font-size: ${RFValue(22)}px;
   background-color: ${({theme}) => theme.colors.success_light};
 `;
 
 export const MessageText = styled.TextInput`
   flex: 1;
-  width: ${os === 'ios' ? RFValue(278) : RFValue(310)};
-  height: ${os === 'ios' ? RFValue(160) : RFValue(140)};
+  width: ${os === 'ios' ? RFValue(278) : RFValue(310)}px;
+  height: ${os === 'ios' ? RFValue(160) : RFValue(140)}px;
   padding: 14px;
   margin-bottom: 6px;
   background-color: ${({theme}) => theme.colors.shape};
@@ -82,4 +82,25 @@ export const MessageText = styled.TextInput`
   font-size: ${RFValue(15)}px;
   border-bottom-width: 2px;
   border-bottom-color: ${({theme}) => theme.colors.background};
+`;
+
+export const OpenButton = styled.Button`
+  margin-left: 8px;
+  margin-top: 5px;
+  margin-bottom: 8px;
+  background-color: #fd9e63;
+  border-radius: 20px;
+  padding: 5px;
+  elevation: 2px;
+`;
+
+export const ButtonModalText = styled.Text`
+  color: ${({theme}) => theme.colors.text};
+  font-family: ${({theme}) => theme.fonts.regular};
+  text-align: center;
+`;
+
+export const MsgModalText = styled.Text`
+  color: ${({theme}) => theme.colors.text};
+  font-family: ${({theme}) => theme.fonts.regular};
 `;

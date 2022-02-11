@@ -52,7 +52,7 @@ export const TimeInfo = styled.View`
 export const TimeInfoLabel = styled.Text`
   color: ${({theme}) => theme.colors.shape};
   font-family: ${({theme}) => theme.fonts.regular};
-  font-size: ${RFValue(10)};
+  font-size: ${RFValue(10)}px;
 `;
 
 export const Time = styled.Text`

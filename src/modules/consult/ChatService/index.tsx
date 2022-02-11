@@ -266,8 +266,9 @@ export function ChatService({route}: any) {
                 },
               },
             ]);
-            api.post(`atendimentos/finalizar/${serviceCode}/`);
-            setAttDetail({} as AttDetailProps);
+            api
+              .post(`atendimentos/finalizar/${serviceCode}/`)
+              .then(() => setAttDetail({} as AttDetailProps));
           }
         }
       },
@@ -336,7 +337,9 @@ export function ChatService({route}: any) {
   function handleChatOff() {
     const IsIniciadoCobranca = attDetail?.IsIniciadoCobranca;
     if (IsIniciadoCobranca === 'S') {
-      api.post(`atendimentos/finalizar/${serviceCode}/`);
+      api
+        .post(`atendimentos/finalizar/${serviceCode}/`)
+        .then(() => setAttDetail({} as AttDetailProps));
     }
     navigation.navigate('Main');
   }

@@ -5,6 +5,7 @@ import {
   TouchableWithoutFeedback,
   Keyboard,
   Alert,
+  Modal,
 } from 'react-native';
 
 import {NavigationProp, ParamListBase} from '@react-navigation/native';
@@ -30,9 +31,10 @@ import {
 type NavProps = NavigationProp<ParamListBase>;
 
 export function EmailService({route}: any) {
+  console.log('attendant', route.params);
+
   const {attendant} = route.params;
-  console.log('attendant', attendant);
-  const {Cadastro} = attendant.item;
+  const {Cadastro} = attendant;
   console.log('codigo do atendente:', Cadastro.Codigo);
   // apos validacao das funcionalidade passar o codigo do atendente real!
 
@@ -46,6 +48,12 @@ export function EmailService({route}: any) {
   const [dob, setDob] = useState('');
   const [subject, setSubject] = useState('');
   const [message, setMessage] = useState('');
+  const [modalVisible, setModalVisible] = useState(false);
+
+  const serviceValidation = async () => {
+    setModalVisible(true);
+    console.log('modal:', modalVisible);
+  };
 
   const startNewService = async () => {
     setIsLoading(true);
@@ -85,6 +93,7 @@ export function EmailService({route}: any) {
         Mensagem: message,
       })
       .then(responseEmail => {
+        console.log(responseEmail);
         setIsLoading(false);
 
         handleServiceOff();
@@ -199,7 +208,8 @@ export function EmailService({route}: any) {
               </Form>
               <Button
                 title="Enviar Consulta"
-                onPress={() => startNewService()}
+                onPress={() => serviceValidation()}
+                // onPress={() => startNewService()}
                 enabled={consultantName ? true : false}
                 color={theme.colors.success}
               />

@@ -52,10 +52,11 @@ type ItemProps = {
 type NavProps = NavigationProp<ParamListBase>;
 
 export function SelectedAttendant({route}: any) {
-  const {mode} = route.params;
-  const attendant: any = route.params.attendant.item;
+  console.log('in selected attendant params:', route.params);
+  const {modeSelected} = route.params;
+  const attendant: any = route.params.attendant;
   const {selectedMode, user} = useAuth();
-  const [serviceChannel, setServiceChannel] = useState(mode);
+  const [serviceChannel, setServiceChannel] = useState(modeSelected);
   const [selectedSalesPrice, setSelectedSalesPrice] = useState<any>();
 
   const [showSalesPrice, setshowSalesPrice] = useState(true);
@@ -94,7 +95,7 @@ export function SelectedAttendant({route}: any) {
     const pricePerMinute = attendant.ValorPorMinuto;
 
     if (pricePerMinute) {
-      if (user.qtdcreditos > pricePerMinute * 3) {
+      if (user.qtdcreditos < pricePerMinute * 3) {
         Alert.alert(
           'Saldo atual insuficiente.',
           'Para realizar uma nova consulta com tempo hábil para perguntas e respostas, favor adquirir mais créditos!',
@@ -226,7 +227,7 @@ export function SelectedAttendant({route}: any) {
     setServiceChannel('mail');
     selectedMode('mail');
 
-    if (user.qtdcreditos >= 49.9) {
+    if (user.qtdcreditos <= 49.9) {
       Alert.alert(
         'Saldo atual insuficiente.',
         'Para realizar uma nova consulta com tempo hábil para perguntas e respostas, favor adquirir mais créditos!',

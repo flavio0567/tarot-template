@@ -102,7 +102,15 @@ export function AttendantDetails({route}: any) {
     const pricePerMinute = attendant.ValorPorMinuto;
 
     if (pricePerMinute) {
-      if (user.qtdcreditos > pricePerMinute * 3) {
+      let serviceCompare: number;
+
+      if (modeSelected === 'mail') {
+        serviceCompare = 49.9;
+      } else {
+        serviceCompare = pricePerMinute * 3;
+      }
+
+      if (user.qtdcreditos < serviceCompare) {
         Alert.alert(
           'Saldo atual insuficiente.',
           'Para realizar uma nova consulta com tempo hábil para perguntas e respostas, favor adquirir mais créditos!',
@@ -115,6 +123,11 @@ export function AttendantDetails({route}: any) {
       } else {
         navigation.navigate('SelectedAttendant', {modeSelected, attendant});
       }
+    } else {
+      Alert.alert(
+        'Consulta não disponível:',
+        'Não foi possível obter o seu saldo, tente novamente!',
+      );
     }
   }
 
